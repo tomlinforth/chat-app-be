@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-// const {} = require("../db/utils/utils");
+const { makeRefObj } = require("../db/utils/utils");
 
 describe("makeRefObj", () => {
   it("returns an empty object when an empty array is passed", () => {
