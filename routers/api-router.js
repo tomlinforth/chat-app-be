@@ -1,10 +1,10 @@
 const apiRouter = require("express").Router();
 const { getUsers, getUserByUserName } = require("../controllers/c-users");
+const { getChannels } = require("../controllers/c-channels");
 const {
-  getChannels,
   getMessagesByChannel,
   postMessage
-} = require("../controllers/c-channels");
+} = require("../controllers/c-messages");
 
 apiRouter.use("/users");
 
