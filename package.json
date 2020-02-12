@@ -28,7 +28,8 @@
     "upOnce": "knex migrate:up",
     "downOnce": "knex migrate:down",
     "test-latest": "NODE_ENV=test knex migrate:latest",
-    "test-rollback": "NODE_ENV=test knex migrate:rollback"
+    "test-rollback": "NODE_ENV=test knex migrate:rollback",
+    "start":"node listen.js"
   },
   "author": "",
   "license": "ISC"
