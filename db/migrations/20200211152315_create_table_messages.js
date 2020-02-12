@@ -1,6 +1,6 @@
 exports.up = function(knex) {
   return knex.schema.createTable("messages", messagesTable => {
-    messagesTable.increments();
+    messagesTable.increments("message_id");
     messagesTable
       .string("author")
       .references("users.username")
@@ -9,7 +9,7 @@ exports.up = function(knex) {
       .integer("channel_id")
       .references("channels.channel_id")
       .notNullable();
-    messagesTable.string("body").notNullable();
+    messagesTable.text("body").notNullable();
     messagesTable.timestamp("created_at").defaultTo(knex.fn.now());
   });
 };

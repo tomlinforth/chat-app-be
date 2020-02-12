@@ -15,18 +15,15 @@ exports.seed = knex => {
         .insert(channelData)
         .returning("*");
       const insertUserData = knex("users").insert(userData);
-      const insertMessageData = knex("messages").insert(messagesData);
-      return Promise.all([
-        insertChannelData,
-        insertMessageData,
-        insertUserData
-      ]);
+      return Promise.all([insertChannelData, insertUserData]);
     })
     .then(([channelRows]) => {
       const formattedChannels = formatChannelPerms(
         channelPerms,
         makeRefObj(channelRows)
       );
-      return knex("channelperms").insert(formattedChannels);
+      const insertMessageData = knex("messages").insert(messagesData);
+      const insertChannelPerms = knex("channelperms").insert(formattedChannels);
+      return Promise.all([insertMessageData, insertChannelPerms]);
     });
 };
