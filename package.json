@@ -1,0 +1,32 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "chat-app-backend",
+  "main": "app.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.20.9",
+    "pg": "^7.18.1"
+  },
+  "devDependencies": {
+    "mocha": "^7.0.1",
+    "chai": "^4.2.0",
+    "chai-sorted": "^0.2.0",
+    "chai-things": "^0.2.0",
+    "supertest": "^4.0.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "setup-dbs": "psql -f ./db/setup.sql",
+    "make-migrate": "knex migrate:make",
+    "latest": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "upOnce": "knex migrate:up",
+    "downOnce": "knex migrate:down",
+    "test-latest": "NODE_ENV=test knex migrate:latest",
+    "test-rollback": "NODE_ENV=test knex migrate:rollback"
+  },
+  "author": "",
+  "license": "ISC"
+}
