@@ -20,7 +20,7 @@
     "seed": "knex seed:run",
     "test-seed": "NODE_ENV=test knex seed:run",
     "test-utils": "mocha spec/utils.spec.js",
-    "test": "mocha spec/app.spec.js --timeout 10000",
+    "test": "mocha spec/app.spec --timeout 10000",
     "setup-dbs": "psql -f ./db/setup.sql",
     "make-migrate": "knex migrate:make",
     "latest": "knex migrate:latest",
@@ -29,7 +29,7 @@
     "downOnce": "knex migrate:down",
     "test-latest": "NODE_ENV=test knex migrate:latest",
     "test-rollback": "NODE_ENV=test knex migrate:rollback",
-    "start":"node listen.js"
+    "start": "node listen.js"
   },
   "author": "",
   "license": "ISC"
